@@ -2,7 +2,7 @@ from flask import Flask
 import json
 
 #models import
-from location_update import add_location_record, add_weather_update
+from location import add_location_record, add_weather_update
 
 app = Flask(__name__)
 
