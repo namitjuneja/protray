@@ -40,24 +40,27 @@ def add_weather_record(request):
 
 def extract_date_from_timestamp(timestamp):
     #returns date
+    return 2012
+
 def get_weather_record(request):
-    start_date = request.form["start_date"]
-    end_date = request.form["end_date"]
-    weather_details = {} #key = date, value = {"location" : location, "description" : description, "temp" : temp, "humidity" : humidity, "wind" : wind}
-    cursor = db.cursor() # prepare a cursor object using cursor() method
-    # sql = """INSERT INTO user_data (name, date, month, year, start_time, end_time, destination, contact, comments) 
-    # VALUES (%s, %s,%s, %s, %s, %s, %s, %s, %s);""", (str(request.form["name"]), str(request.form["date"]), str(request.form["month"]), str(request.form["year"]), str(request.form["start_time"]), str(request.form["end_time"]), str(request.form["destination"]), str(request.form["number"]), str(request.form["comments"]))
-    sql = """SELECT * FROM eventList WHERE  `date` BETWEEN '2013-03-26 00:00:01' AND '2013-03-26 23:59:59'"""
-    cursor.execute(sql) # execute SQL query using execute() method.
-    # Fetch all the rows in a list of lists.
-   results = cursor.fetchall()
-   for row in results:
-      location = row[0]
-      timestamp = row[1]
-      description = row[2]
-      temp = row[3]
-      humidity = row[4]
-      if weather_details[extract_date_from_timestamp(timestamp)] not in weather_details:
-        weather_details[extract_date_from_timestamp(timestamp)] = {"location" : location, "description" : description, "temp" : temp, "humidity" : humidity, "wind" : wind}
-      db.close()  # disconnect from server
-      return weather_details
+   #  start_date = request.form["start_date"]
+   #  end_date = request.form["end_date"]
+   #  weather_details = {} #key = date, value = {"location" : location, "description" : description, "temp" : temp, "humidity" : humidity, "wind" : wind}
+   #  cursor = db.cursor() # prepare a cursor object using cursor() method
+   #  # sql = """INSERT INTO user_data (name, date, month, year, start_time, end_time, destination, contact, comments) 
+   #  # VALUES (%s, %s,%s, %s, %s, %s, %s, %s, %s);""", (str(request.form["name"]), str(request.form["date"]), str(request.form["month"]), str(request.form["year"]), str(request.form["start_time"]), str(request.form["end_time"]), str(request.form["destination"]), str(request.form["number"]), str(request.form["comments"]))
+   #  sql = """SELECT * FROM eventList WHERE  `date` BETWEEN '2013-03-26 00:00:01' AND '2013-03-26 23:59:59'"""
+   #  cursor.execute(sql) # execute SQL query using execute() method.
+   #  # Fetch all the rows in a list of lists.
+   # results = cursor.fetchall()
+   # for row in results:
+   #    location = row[0]
+   #    timestamp = row[1]
+   #    description = row[2]
+   #    temp = row[3]
+   #    humidity = row[4]
+   #    if weather_details[extract_date_from_timestamp(timestamp)] not in weather_details:
+   #      weather_details[extract_date_from_timestamp(timestamp)] = {"location" : location, "description" : description, "temp" : temp, "humidity" : humidity, "wind" : wind}
+   #    db.close()  # disconnect from server
+   #    return weather_details
+    return {"1": {"location" : "location" , "description" : "big clouds, "temp" : 35, "wind" : 12}, "2": {"location" : "location2", "description" : "small clouds, "temp" : 5, "wind" : 1} }, "3": {"location" : "location3", "description" : "medium clouds" , "temp" : 20, "wind" : 2}}
